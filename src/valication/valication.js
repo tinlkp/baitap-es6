@@ -46,6 +46,19 @@ function Validation() {
         }
 
     };
+    this.kiemTraFromTo = function (value, iderror, mes, min, max) {
+        if (min <= value && value <= max) {
+            getEle(iderror).innerHTML = "";
+            getEle(iderror).style.display = "none";
+
+            return true;
+        }
+        getEle(iderror).innerHTML = mes;
+        getEle(iderror).style.display = "block";
+
+        return false;
+
+    };
 
 
 

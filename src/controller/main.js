@@ -41,27 +41,31 @@ const getValueStudent = (isAdd) => {
 
     let isValid = true;
     if (isAdd) {
-        isValid &= validation.kiemTraRong(id, "tBIdHS", "Vui lòng điền mã số")
-            && validation.check(id, "tBIdHS", "Vui lòng số mã ", /^[0-9]+$/)
-            && validation.kiemTraTrung(id, "tBIdHS", "mã số đã tồn tại", personService.listPerson);
+        isValid &= validation.kiemTraRong(id, "tBIdHS", "Vui lòng điền mã số !!!")
+            && validation.check(id, "tBIdHS", "Vui lòng số mã !!!", /^[0-9]+$/)
+            && validation.kiemTraTrung(id, "tBIdHS", "mã số đã tồn tại !!!", personService.listPerson);
 
     }
-    isValid &= validation.kiemTraRong(hoTen, "tBHTHS", "Vui lòng điền họ tên")
-        && validation.check(hoTen, "tBHTHS", "Vui lòng điền họ tên", "^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" + "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" + "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$");
+    isValid &= validation.kiemTraRong(hoTen, "tBHTHS", "Vui lòng điền họ tên !!!")
+        && validation.check(hoTen, "tBHTHS", "Vui lòng điền họ tên !!!", "^[a-zA-Z_ÀÁÂÃÈÉÊẾÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" + "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" + "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$");
 
-    isValid &= validation.kiemTraRong(diaChi, "tBDCHS", "Vui lòng điền địa chỉ");
+    isValid &= validation.kiemTraRong(diaChi, "tBDCHS", "Vui lòng điền địa chỉ !!!");
 
-    isValid &= validation.kiemTraRong(email, "tBEHS", "Vui lòng điền email")
-        && validation.check(email, "tBEHS", "Vui lòng điền đúng định dạng email", /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
+    isValid &= validation.kiemTraRong(email, "tBEHS", "Vui lòng điền email !!!")
+        && validation.check(email, "tBEHS", "Vui lòng điền đúng định dạng email !!!", /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
 
-    isValid &= validation.kiemTraRong(toan, "tBDTHS", "Vui lòng điền điểm toán")
-        && validation.check(toan, "tBDTHS", "Vui lòng điền số điểm toán", /^[0-9]+$/);
+    isValid &= validation.kiemTraRong(toan, "tBDTHS", "Vui lòng điền điểm toán !!!")
+        && validation.check(toan, "tBDTHS", "Vui lòng điền số điểm toán !!!", /^[0-9]+$/)
+        && validation.kiemTraFromTo(toan, "tBDTHS", "Nhập số từ 1 đến 10 !!!", 1, 10);
 
-    isValid &= validation.kiemTraRong(ly, "tBDLHS", "Vui lòng điền điểm lý")
-        && validation.check(ly, "tBDLHS", "Vui lòng điền số điểm lý", /^[0-9]+$/);
 
-    isValid &= validation.kiemTraRong(hoa, "tBDHHS", "Vui lòng điền điểm hóa")
-        && validation.check(hoa, "tBDHHS", "Vui lòng điền số điểm hóa", /^[0-9]+$/);
+    isValid &= validation.kiemTraRong(ly, "tBDLHS", "Vui lòng điền điểm lý !!!")
+        && validation.check(ly, "tBDLHS", "Vui lòng điền số điểm lý !!!", /^[0-9]+$/)
+        && validation.kiemTraFromTo(ly, "tBDLHS", "Nhập số từ 1 đến 10 !!!", 1, 10);
+
+    isValid &= validation.kiemTraRong(hoa, "tBDHHS", "Vui lòng điền điểm hóa !!!")
+        && validation.check(hoa, "tBDHHS", "Vui lòng điền số điểm hóa !!!", /^[0-9]+$/)
+        && validation.kiemTraFromTo(hoa, "tBDHHS", "Nhập số từ 1 đến 10 !!!", 1, 10);
 
 
     if (isValid) {
