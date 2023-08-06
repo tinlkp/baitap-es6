@@ -1,6 +1,6 @@
 const getEle = (id) => document.getElementById(id);
-function Validation() {
-    this.kiemTraRong = (value, iderror, mess) => {
+export class Validation {
+    kiemTraRong = (value, iderror, mess) => {
         if (value == "") {
             getEle(iderror).innerHTML = mess;
             getEle(iderror).style.display = "block";
@@ -13,7 +13,7 @@ function Validation() {
             return true;
         }
     };
-    this.check = (value, iderror, mes, letter) => {
+    check = (value, iderror, mes, letter) => {
         if (value.match(letter)) {
             getEle(iderror).innerHTML = "";
             getEle(iderror).style.display = "none";
@@ -25,7 +25,7 @@ function Validation() {
 
         return false;
     };
-    this.kiemTraTrung = function (value, iderror, mes, listPerson) {
+    kiemTraTrung = function (value, iderror, mes, listPerson) {
         var isExist = false;
         for (var i = 0; i < listPerson.length; i++) {
             var object = listPerson[i];
@@ -46,7 +46,7 @@ function Validation() {
         }
 
     };
-    this.kiemTraFromTo = function (value, iderror, mes, min, max) {
+    kiemTraFromTo = function (value, iderror, mes, min, max) {
         if (min <= value && value <= max) {
             getEle(iderror).innerHTML = "";
             getEle(iderror).style.display = "none";
@@ -60,10 +60,7 @@ function Validation() {
 
     };
 
-
-
-};
-
+}
 
 
 

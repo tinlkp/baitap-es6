@@ -2,7 +2,7 @@ import { Student } from "../models/student.js";
 import { Employee } from "../models/employee.js";
 import { Customer } from "../models/customer.js";
 import { PersonService } from "../models/listPerson.js";
-
+import { Validation } from "../valication/valication.js";
 
 const getEle = (id) => document.getElementById(id);
 const personService = new PersonService();
@@ -114,7 +114,8 @@ const getValueEmployee = (isAdd) => {
         && validation.check(ngayLam, "tBNCGV", "Vui lòng điền số ngày làm", /^[0-9]+$/);
 
     isValid &= validation.kiemTraRong(luongNgay, "tBLNGV", "Vui lòng điền ngày làm")
-        && validation.check(luongNgay, "tBLNGV", "Vui lòng điền số ngày làm", /^[0-9]+$/);
+        && validation.check(luongNgay, "tBLNGV", "Vui lòng điền số ngày làm", /^[0-9]+$/)
+        && validation.kiemTraFromTo(luongNgay, "tBLNGV", "Vui lòng số từ 0 đến 30", 0, 30);
 
     if (isValid) {
         const employee = new Employee(type, hoTen, diaChi, id, email, ngayLam, luongNgay);
@@ -194,7 +195,7 @@ const renderTable = (data) => {
                 
         `
         if (element.type === "Student") {
-            total += `<td>${element.dtb.toFixed(2)}</td>
+            total += `<td>${element.dtb.toFixed(1)}</td>
             <td></td>
             <td></td>
             <td></td>
